@@ -1,9 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container d-flex" style="max-width: 1400px">
+<div class="vh-100 container d-flex" style="max-width: 1400px">
     <div class="col-sm-12" style="width: 80%">
     <h4 class="container col-sm-12">Your favorite list:</h4>
+    <hr>
         <div class="row">
             <div class="card-body">
                 @if($favorite->count() > 0)

@@ -5,6 +5,7 @@ use App\Http\Controllers\BodyController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\AnatomyController;
 use App\Http\Controllers\DiseaseController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SymptomController;
 use App\Http\Controllers\FavoriteController;
 
@@ -26,7 +27,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
+Route::get('/profile', function() {
+    return view('profile');
+});
 // Backend
 Route::group(['prefix' => 'admin', 'middleware' => ['auth','isAdmin']], function () {
     Voyager::routes();
@@ -36,7 +39,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','isAdmin']], function
 //route homepage
 
 // Anatomy Route
-Route::get('/anatomy', [AnatomyController::class, 'index']);
+Route::get('/anatomy', [AnatomyController::class, 'index'])->middleware('auth');
 Route::get('/anatomy/{id}', [AnatomyController::class, 'anatomy']);
 
 //Disease Route
@@ -50,6 +53,7 @@ Route::get('/disease/{id}', [DiseaseController::class, 'disease']);
 
 // body Route
 Route::get('/body', [BodyController::class, 'body']);
+Route::get('/listbody', [BodyController::class, 'allbody']);
 Route::get('/body/{name}', [BodyController::class, 'bodylist']);
 
 //symptom Route
@@ -60,4 +64,8 @@ Route::get('/search', [SearchController::class, 'indexSearch']);
 Route::get('/symptom', [SearchController::class, 'symptomsearch']);
 
 // Favorite Route
-Route::get('/favorite', [FavoriteController::class, 'favoritelist']);
+Route::middleware('requestlogin')->group(function(){
+    Route::get('/favorite', [FavoriteController::class, 'favoritelist']);
+  });  
+
+Route::post('/addfavorite', [FavoriteController::class, 'addfavorite']);

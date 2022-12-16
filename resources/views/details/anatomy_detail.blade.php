@@ -19,6 +19,11 @@
             <div class="col-sm-12 py-2">
                 <p>{!! $anatomy['description'] !!}</p>
             </div>
+            <div class="col-sm-12 py-2">
+                <h5 class="text-uppercase py-2 pb-4" style="color: Dark Blue">Reference Document</h5>
+                <a href="https://www.getbodysmart.com/">https://www.getbodysmart.com/{!! $anatomy['name'] !!}</a>
+
+            </div>
         </div>
     </div>
 </section>

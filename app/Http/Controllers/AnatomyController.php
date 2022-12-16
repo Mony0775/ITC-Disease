@@ -7,7 +7,7 @@ use App\Models\Anatomy;
 class AnatomyController extends Controller
 {
     public function index(){
-        $anatomy = Anatomy::all();
+        $anatomy = Anatomy::orderBy('id', 'desc')->get();
         return view('navigation.anatomy', compact('anatomy'));
     }
     public function anatomy($id){

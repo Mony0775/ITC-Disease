@@ -9,15 +9,15 @@
         </ol>
         <div class="carousel-inner mb-10">
             <div class="carousel-item active" data-interval="10000">
-                <img src="{{Voyager::image(setting('slider.slider-1'))}}" class="d-block w-100 vh-100 h-50" alt="...">
+                <img src="{{Voyager::image(setting('slider.slider-1'))}}" class="d-block w-100" style="height: 800px" alt="...">
                 <div class="carousel-caption d-none d-md-block">
             </div>
             </div>
             <div class="carousel-item" data-interval="2000">
-                <img src="{{Voyager::image(setting('slider.slider-2'))}}" class="d-block w-100 vh-100 h-50" alt="...">
+                <img src="{{Voyager::image(setting('slider.slider-2'))}}" class="d-block w-100" style="height: 800px" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="{{Voyager::image(setting('slider.slider-3'))}}" class="d-block w-100 vh-100 h-50" alt="...">
+                <img src="{{Voyager::image(setting('slider.slider-3'))}}" class="d-block w-100" style="height: 800px" alt="...">
             </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
@@ -65,7 +65,7 @@
 
 <section>
     <div class="container Shortcut">
-    <h4 class="text-center my-3"><strong>Looking for...</strong></h4>
+    <h4 class="text-center my-3"><strong></strong></h4>
     <div class="row shadow pb-5">
         <div class="col-lg-6 col-md-12 col-sm-12 py-4 inner">
                     <div class="bg-image hover-zoom ripple shadow-1-strong rounded">
@@ -85,7 +85,7 @@
                             <img src="{{Voyager::image(setting('shortcut.body_homepage'))}}" style="width: 100%; height: 350px" />
                             <div class="mask" style="background-color: rgba(0, 0, 0, 0.3);">
                                 <div class=" d-flex  justify-content-center align-items-center h-100">
-                                    <h2 style="text-align: center; background: cover; color: white"><span class="badge">Body</span></h2>
+                                    <h2 style="text-align: center; background: cover; color: white"><span class="badge">Category</span></h2>
                                 </div>
                             </div>
                         </a>
@@ -120,14 +120,20 @@
 </section>
 
 <section class="d-flex justify-content-center bg-info">
-    <div class="py-2">
+
+    @if(!Auth::check())
+        <div class="py-2">
         <h1>Want to explore more....</h1>
-        <h3 style="text-align: center;">Sign Up here</h3>
-        <center>
-              <h4 class="btn btn-primary text-uppercase" style="text-align: center">Sign Up</h4>
-        </center>
-      
-    </div>
+            <h3 style="text-align: center;">Sign Up here</h3>
+            <center>
+                <a href="/register"><h4 class="btn btn-primary text-uppercase" style="text-align: center">Sign Up</h4></a>
+                
+            </center>
+        
+        </div>
+    @else
+        <h3>Welcome, {{Auth::user()->name}}</h3>
+    @endif
 </section>
 <style>
     .shortcut{

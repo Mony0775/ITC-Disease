@@ -9,9 +9,11 @@
   </ol>
 </nav>
 
-<div class="container pt-5">
+<div class="container py-4">
+
+    <h2 class="text-center">How are you today?</h2>
     <form class="form-inline d-flex justify-content-center md-form form-sm active-cyan-2 mt-2" method="get" action="{{ url('/symptom')}}">
-    <input class="form-control form-control-sm mr-3 w-50" name="search" type="text" placeholder="Find your symptom..." aria-label="Search" required/>
+    <input class="form-control form-control-sm mr-3 w-50" style="height: 50px" name="search" value="{{ old('search') }}" required autocomplete="search" autofocus type="text" placeholder="Find your symptom..." aria-label="Search" required/>
     </form>
 </div>
 
@@ -25,7 +27,7 @@
     <h2>No Founds!</h2>
 @endif -->
 @if($data->isNotEmpty())
-        <h4 class="container result">Search found <span style="color: green">{!!$search!!}</span>: {{$data->count() }} items<br><br></h4>
+        <h4 class="container result pb-3">List of disease for symptom: <span style="color: green">{!!$search!!}</span>: {{$data->count() }} items<br><br></h4>
             <section style="background-color: #eee;">
                 <div class="container py-5">
                     @foreach($data as $item)

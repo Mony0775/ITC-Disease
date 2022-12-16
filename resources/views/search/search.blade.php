@@ -1,22 +1,14 @@
 @extends('layouts.app')
 @section('content')
-<div class="container pt-5">
+<div class="container py-5">
+    <h2 class="text-center">What disease are you looking for?</h2>
+    <br>
     <form class="form-inline d-flex justify-content-center md-form form-sm active-cyan-2 mt-2" method="get" action="{{ url('/search')}}">
-    <input class="form-control form-control-sm mr-3 w-50" name="search" type="text" placeholder="Search by name or body part..." aria-label="Search" required/>
+        <input class="form-control form-control-sm mr-3 w-50" style="height: 50px" name="search" type="text" placeholder="Search by name or body part..." aria-label="Search" required/>
     </form>
-</div>
-
-<hr>
-
-<!-- @if($data->isNotEmpty())
-    @foreach($data as $item)
-        <p>{{ $item->name }}</p>
-    @endforeach
-@else
-    <h2>No Founds!</h2>
-@endif -->
-@if($data->isNotEmpty())
-        <h4 class="container result">Search found <span style="color: green">{!!$search!!}</span>: {{$data->count() }} items<br><br></h4>
+</div><hr>
+      @if($data->isNotEmpty())
+        <h4 class="container result">Search found for <span style="color: green">{!!$search!!}</span>: {{$data->count() }} items<br><br></h4>
             <section style="background-color: #eee;">
                 <div class="container py-5">
                     @foreach($data as $item)
@@ -57,7 +49,9 @@
             </section>
         @else
             <div class="vh-100">
-                <h4 class="result container">Search not found <span style="color: red">{!!$search!!}</span>: {{$data->count()}} items</h4>
+                <h4 class="result container">Search not found for <span style="color: red">{!!$search!!}</span>: {{$data->count()}} items</h4>
             </div>
         @endif
+
+
 @endsection

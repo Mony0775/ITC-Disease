@@ -13,5 +13,4 @@ class Favorite extends Model
         'user_id',
         'disease_id',
     ];
-
 }

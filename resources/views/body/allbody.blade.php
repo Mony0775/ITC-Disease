@@ -1,13 +1,6 @@
 @extends('layouts.app')
 @section('content')
 <section class="container">
-<div class="col-12 container py-3 d-flex justify-content-between">
-        <h5 class="section-h5">Category by Body</h5>
-        <a href="/listbody" class="d-flex">
-            <span class="rps-show-hide see-more-text">See more</span>
-            <i class="fa fa-angle-right pl-2 pt-1"></i>
-        </a>
-    </div>
     <div class="col-12">
         <hr class="mt-0 mb-4">
     </div>
@@ -31,9 +24,7 @@
         </div>
         
     </div>
-    
 </div>
-<div class="py-3 align-items-center">{!!$bodies->links()!!}</div>
 </section>
 <style>
     .shortcut{

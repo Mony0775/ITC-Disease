@@ -15,7 +15,7 @@ class SearchController extends Controller
                 ->get();
         return view('search.search', compact('data', 'search'));
     }
-
+    
     public function symptomsearch(Request $request){
         $search = $request->input('search');
         $data = Disease::query()->where('symptom', 'LIKE', "%{$search}%")->get();

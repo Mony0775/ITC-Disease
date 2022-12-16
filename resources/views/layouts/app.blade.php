@@ -7,26 +7,15 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>ITC Disease</title>
-
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
-
-    <!-- Fonts -->
-    <script src="https://kit.fontawesome.com/45c36f3edb.js" crossorigin="anonymous"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
-    <!-- Styles -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <title>Disease Library</title>
+@include('function.header')
 </head>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-lg shadow-sm sticky-top" style="background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%); text: green">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    ITC<span>Disease</span>
+                    Disease<span>Library</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"><i class="fa fa-bars" aria-hidden="true"></i></span>
@@ -64,7 +53,7 @@
                                     {{ Auth::user()->name }}
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                                    <li><a class="dropdown-item" href="/profile">Profile</a></li>
                                     <li><hr class="dropdown-divider"></li>
                                     <li>
                                         <a class="dropdown-item" href="{{ route('logout') }}"  onclick="event.preventDefault();
@@ -124,6 +113,17 @@
                 font-weight: bold;
                 color: #111;
             }
+            .pagination{
+                font-size: 20px;
+                align-items: center;
+                justify-content: center;
+            }
+            svg{
+                width: 30px;
+                height: 30px;
+                justify-content: center;
+                align-items: center;
+            }
 
         </style>
         <main>
@@ -137,7 +137,7 @@
                     <!-- Grid column -->
                         <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                         <!-- Content -->
-                            <h6 class="text-uppercase fw-bold"><a href="/">ITCDisease</a></h6>
+                            <h6 class="text-uppercase fw-bold"><a href="/">DiseaseLibrary</a></h6>
                             <hr
                                 class="mb-4 mt-0 d-inline-block mx-auto"
                                 style="width: 60px; background-color: #7c4dff; height: 2px"
@@ -178,7 +178,5 @@
         </footer>
     </div>
 </body>
-<script>
-    
-</script>
+@include('function.script')
 </html>
